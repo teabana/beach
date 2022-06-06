@@ -1,0 +1,49 @@
+<div id="Signup-box" class="blur">
+  <div class="left" >
+    <h1>Sign up</h1>
+
+    <%= form_with model: @user, url: user_registration_path, class: "registration_main", local: true do |f| %>
+
+    <%# <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-group">
+        <%= f.text_field :nickname, class: "input-default", id:"nickname", placeholder: "Username", maxlength:"40" %>
+        <i class="fa-solid fa-person-swimming"></i>
+      </div>
+      <div class="form-group">
+        <%= f.email_field :email, class:"input-default", id:"email", placeholder: "E-mail", autofocus: true %>
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, class:"input-default", id:"password", placeholder: "Password" %>
+        <i class="fa-solid fa-key" ></i> 
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, class:"input-default", id:"password_confirmation", placeholder: "Retype password" %>
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="actions">
+        <%= f.submit "Sign me up", class: "register-btn" %>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="right">
+    <span class="loginwith">Sign in with<br />social network</span>
+    <button class="social-signin facebook">
+      <span class="fa-brands fa-facebook-square"></span>
+      Log in with facebook
+    </button>
+    <button class="social-signin twitter">
+      <span class="fa-brands fa-twitter-square"></span>
+      Log in with Twitter
+    </button>
+    <button class="social-signin google">
+      <span class="fa-brands fa-google-plus-square"></span>
+      Log in with Google+
+    </button>
+
+    <%# <%= render "devise/shared/links" %>
+  </div>
+  <div class="or">OR</div>
+</div>

@@ -7,8 +7,6 @@
 | email                  | string  | null: false, unique: true    |
 | encrypted_password     | string  | null: false                  |
 | nickname               | string  | null: false                  |
-| last_name              | string  | null: false                  |
-| first_name             | string  | null: false                  |
 | admin                  | boolean | null: false, default: false  |
 
 ## Association
