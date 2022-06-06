@@ -1,0 +1,19 @@
+// Place all the styles related to the beach controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.beach-top {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: url("./GX014341.jpg") center center no-repeat;
+  background-size: cover;
+  font-size: 16px;
+  color: #222;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+}

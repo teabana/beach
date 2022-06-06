@@ -1,59 +1,61 @@
-<div id="login-box" class="blur">
-  <div class="left">
-    <h1>Log in</h1>
+<div class="session"> 
+  <div id="login-box" class="blur">
+    <div class="left">
+      <h1>Log in</h1>
 
-    <%= form_with model: @user, url: user_session_path, class: "session-main" do |f| %>
+      <%= form_with model: @user, url: user_session_path, class: "session-main" do |f| %>
 
-      <div class="form-group">
-        <i class="fa-solid fa-envelope"></i>
-        <%= f.email_field :email, class:"ipnut-default", id:"email", placeholder: "E-mail" , autofocus: true %>
-        <i class="fa-solid fa-envelope"></i>
-      </div>
-      <div class="form-group">
-        <%= f.password_field :password, class:"ipnut-default", id:"password", placeholder: "Password" %>
-        <i class="fa-solid fa-key" ></i> 
-      </div>
+        <div class="form-group">
+          <i class="fa-solid fa-envelope"></i>
+          <%= f.email_field :email, class:"ipnut-default", id:"email", placeholder: "E-mail" , autofocus: true %>
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, class:"ipnut-default", id:"password", placeholder: "Password" %>
+          <i class="fa-solid fa-key" ></i> 
+        </div>
+        <a href="#">Forgot your password?</a>
+        <div class="actions">
+          <%= f.submit "Log in", class: "login-btn" %>
+        </div>
+
+      <% end %>
+    </div>
+
+    <div class="right">
+      <span class="loginwith">Sign in with<br />social network</span>
+      <button class="social-signin facebook">
+        <span class="fa-brands fa-facebook-square"></span>
+        Log in with facebook
+      </button>
+      <button class="social-signin twitter">
+        <span class="fa-brands fa-twitter-square"></span>
+        Log in with Twitter
+      </button>
+      <button class="social-signin google">
+        <span class="fa-brands fa-google-plus-square"></span>
+        Log in with Google+
+      </button>
+
+      <%# <%= render "devise/shared/links" %>
+    </div>
+    <div class="or">OR</div>
+  </div>
+
+  <%# <div class="wrapper">
+    <form class="login">
+      <p class="title">Log in</p>
+      <input type="text" placeholder="Username" autofocus/>
+      <i class="fa fa-user"></i>
+      <input type="password" placeholder="Password" />
+      <i class="fa fa-key"></i>
       <a href="#">Forgot your password?</a>
-      <div class="actions">
-        <%= f.submit "Log in", class: "login-btn" %>
-      </div>
-
-    <% end %>
-  </div>
-
-  <div class="right">
-    <span class="loginwith">Sign in with<br />social network</span>
-    <button class="social-signin facebook">
-      <span class="fa-brands fa-facebook-square"></span>
-      Log in with facebook
-    </button>
-    <button class="social-signin twitter">
-      <span class="fa-brands fa-twitter-square"></span>
-      Log in with Twitter
-    </button>
-    <button class="social-signin google">
-      <span class="fa-brands fa-google-plus-square"></span>
-      Log in with Google+
-    </button>
-
-    <%# <%= render "devise/shared/links" %>
-  </div>
-  <div class="or">OR</div>
+      <button>
+        <i class="spinner"></i>
+        <span class="state">Log in</span>
+      </button>
+    </form>
+    <footer><a target="blank" href="http://boudra.me/">boudra.me</a></footer>
+    </p>
+  </div> %>
 </div>
-
-<%# <div class="wrapper">
-  <form class="login">
-    <p class="title">Log in</p>
-    <input type="text" placeholder="Username" autofocus/>
-    <i class="fa fa-user"></i>
-    <input type="password" placeholder="Password" />
-    <i class="fa fa-key"></i>
-    <a href="#">Forgot your password?</a>
-    <button>
-      <i class="spinner"></i>
-      <span class="state">Log in</span>
-    </button>
-  </form>
-  <footer><a target="blank" href="http://boudra.me/">boudra.me</a></footer>
-  </p>
-</div> %>
