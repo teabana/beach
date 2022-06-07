@@ -1,13 +1,18 @@
 <div class="beach-top">
   <div class="header" >
-    <h1>Beach</h1>
-    <nav>
+    <h1 class="site-title">Beach</h1>
+
+    <div class="nav">
       <ul>
-        <li>検索</li>
-        <li>新規登録</li>
-        <li>ログイン</li>
+      <% if user_signed_in?%> 
+        <li><%= link_to 'ログアウト', destroy_user_session_path, class: "logout"%></li>
+      <% else %>
+        <li><%= link_to '新規登録', new_user_session_path, class: "sign-in" %></li>
+        <li><%= link_to 'ログイン', new_user_registration_path, class: "login" %></li>
+      <% end %>
+        <li>検索</a></li>
       </ul>
-    </nav>
+    </div>
   </div>
   <div class="main">
     <div class="cntBlck1">

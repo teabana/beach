@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+/*------------------------------------------------------
+ヘッダー
+------------------------------------------------------*/
+
 .beach-top {
   width: 100vw;
   height: 100vh;
@@ -10,10 +14,31 @@
   padding: 0;
   background: url("./GX014341.jpg") center center no-repeat;
   background-size: cover;
-  font-size: 16px;
-  color: #222;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  display: flex;
-  align-items: center;
+  color: white;
 }
+
+.header {
+  width: 10%;
+  height: 10vh;
+  padding: 50px 50px;
+  writing-mode: vertical-rl;              /*  縦書き */
+  -webkit-writing-mode: vertical-rl;      /*  chrome */
+  -moz-writing-mode: vertical-rl;         /*  Firefox */
+  margin-left: auto;
+  border-radius: 50%;
+  background-color: skyblue;
+  font-family: "Hannari";
+
+  ul {
+    margin-top: 30px;
+    margin-right: 10px;
+  }
+
+  .login, .sign-in, .logout {
+    text-decoration: none;
+    color: white;
+  }
+  
+}
+
+
