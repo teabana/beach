@@ -29,6 +29,10 @@
   background-color: skyblue;
   font-family: "Hannari";
 
+  h1 {
+    font-size: 32px;
+  }
+
   ul {
     margin-top: 30px;
     margin-right: 10px;
@@ -41,4 +45,27 @@
   
 }
 
+/*------------------------------------------------------
+メイン
+------------------------------------------------------*/
 
+.storyContents {
+  font-family: "Hannari";
+  display: flex;
+  justify-content: center;
+  f
+
+  .blankBlock1 {
+  margin-bottom: 70px;
+  }
+
+  p {
+  font-size: 16px;
+  line-height: 2.5;
+  }
+
+  .imgBlock1 {
+    background: url("./PXL_20211018_084032263-PANO.jpg") left no-repeat;
+    width: calc(768px + (100% - 768px)/2);
+  }
+}
