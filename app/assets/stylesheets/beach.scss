@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap');
 
 /*------------------------------------------------------
 ヘッダー
@@ -15,6 +16,26 @@
   background: url("./GX014341.jpg") center center no-repeat;
   background-size: cover;
   color: white;
+  margin-bottom: 150px;
+
+  .top_area_txt {
+    font-family: 'Shippori Mincho B1', serif;  /* "Hannari"; */
+    max-width: 768px;
+    margin-top: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+
+    p {
+      padding-bottom: 20px;
+      font-weight: lighter;
+    }
+
+    h1 {
+      font-weight: bolder;
+    }
+  }
 }
 
 .header {
@@ -54,10 +75,10 @@
 
   .Block {
     max-width: 768px;
+    margin-bottom: 150px;
   }
 
   .blank {
-    margin-bottom: 70px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -70,23 +91,86 @@
   .img-1 {
     text-align: right;
     max-width: none;
-    margin-bottom: 30px;
+    position: relative;
+
+    p {
+      font-size: 32px;
+      max-width: 768px;
+      text-align: center;
+      opacity: 0.5;
+      font-family: 'Shippori Mincho B1', serif;
+      position: absolute;
+      left: 368px;
+      top: 0;
+    } 
+
     .adjSize {
       width: calc(768px + (100% - 768px)/2);
     }
   }
 
   .img-2 {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
+    text-align: left;
+    max-width: none;
+    position: relative;
+
+    p {
+      font-size: 32px;
+      max-width: 768px;
+      text-align: center;
+      opacity: 0.5;
+      font-family: 'Shippori Mincho B1', serif;
+      position: absolute;
+      left: 768px;
+      top: 0;
+    }
+
+    .adjSize {
+      width: calc(768px + (100% - 768px)/2);
+    }
+
   }
 
   .img-3 {
-    text-align: left;
-    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    p {
+      font-size: 32px;
+      max-width: 768px;
+      text-align: center;
+      color: white;
+      font-family: 'Shippori Mincho B1', serif;
+      position: absolute;
+      left: 30px;
+      top: 0;
+    }
+
     .adjSize {
       width: calc(768px + (100% - 768px)/2);
+    }
+
+  } 
+
+  .video-1 {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    p {
+      font-size: 32px;
+      max-width: 768px;
+      text-align: center;
+      color: white;
+      font-family: 'Shippori Mincho B1', serif;
+      position: absolute;
+      right: 30px;
+      top: 0;
+    }
+
+    .adjSize {
+      width: 100%;
     }
   }
 }
