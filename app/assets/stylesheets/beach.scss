@@ -173,4 +173,34 @@
       width: 100%;
     }
   }
+
+  .okinawaMap {
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .hokubu {
+      fill: skyblue;
+
+      &:hover {
+       opacity: 0.5; 
+      }
+    }
+
+    .chubu {
+      fill: lightcoral;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    .nanbu {
+      fill: rgb(241, 241, 24);
+      
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
 }
