@@ -97,7 +97,7 @@
       font-size: 32px;
       max-width: 768px;
       text-align: center;
-      opacity: 0.5;
+      opacity: 0;
       font-family: 'Shippori Mincho B1', serif;
       position: absolute;
       left: 368px;
@@ -106,7 +106,18 @@
 
     .adjSize {
       width: calc(768px + (100% - 768px)/2);
+      opacity: 0;
+      // transform: translate(50%, 0);
+      transition: all 2s ease;
+    
+      &.is-show {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+
     }
+
+
   }
 
   .img-2 {
