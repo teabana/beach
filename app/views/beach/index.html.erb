@@ -1,28 +1,15 @@
-<div class="beach-top">
-  <div class="header" >
-    <h1 class="site-title">Beach</h1>
-
-    <div class="nav">
-      <ul>
-      <% if user_signed_in?%> 
-        <li><%= link_to 'ログアウト', destroy_user_session_path, class: "logout"%></li>
-      <% else %>
-        <li><%= link_to '新規登録', new_user_session_path, class: "sign-in" %></li>
-        <li><%= link_to 'ログイン', new_user_registration_path, class: "login" %></li>
-      <% end %>
-        <li>検索</a></li>
-      </ul>
+<div id="beach">  
+  <%= render "header" %>
+  <div class="beach-top">
+    <div class="top_area_txt">
+      <p>沖縄の海</p>
+      <h1>今日も明日も、そばに。</h1>
     </div>
-  </div>
-  <div class="top_area_txt">
-    <p>沖縄の海</p>
-    <h1>今日も明日も、そばに。</h1>
   </div>
 </div>
 <div class="main">
   <div class="storyContents">
     <div class="img-1 Block">
-      <%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
       <%= image_tag 'PXL_20211018_084032263-PANO.jpg', size: '1000x500', class: "adjSize", id: "img1" %> 
       <p class="txt1 block">思い思いの時間を過ごす</p>
     </div>

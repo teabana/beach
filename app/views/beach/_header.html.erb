@@ -1,0 +1,16 @@
+<div class="header" >
+  <div class="site_title">
+    <%= link_to 'Beach', root_path, class: "logo" %>
+  </div>
+  <div class="nav">
+    <ul>
+      <li><%= link_to 'Search', beach_search_path, class: "search" %></li>
+    <% if user_signed_in?%> 
+      <li><%= link_to 'Signout', destroy_user_session_path, class: "logout"%></li>
+    <% else %>
+      <li><%= link_to 'Signup', new_user_session_path, class: "sign-in" %></li>
+      <li><%= link_to 'Signin', new_user_registration_path, class: "login" %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>

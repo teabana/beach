@@ -3,68 +3,84 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Damion&family=Shippori+Mincho+B1:wght@400;700&display=swap');
 
 /*------------------------------------------------------
 ヘッダー
 ------------------------------------------------------*/
 
-.beach-top {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background: url("./GX014341.jpg") center center no-repeat;
-  background-size: cover;
-  color: white;
-  margin-bottom: 150px;
-
-  .top_area_txt {
-    font-family: 'Shippori Mincho B1', serif;  /* "Hannari"; */
-    max-width: 768px;
-    margin-top: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-
-    p {
-      padding-bottom: 20px;
-      font-weight: lighter;
-    }
-
-    h1 {
-      font-weight: bolder;
-    }
-  }
-}
-
 .header {
-  width: 10%;
-  height: 10vh;
-  padding: 50px 50px;
-  writing-mode: vertical-rl;              /*  縦書き */
-  -webkit-writing-mode: vertical-rl;      /*  chrome */
-  -moz-writing-mode: vertical-rl;         /*  Firefox */
-  margin-left: auto;
-  border-radius: 50%;
-  background-color: skyblue;
-  font-family: "Hannari";
+  width: 60vw;
+  height: 70px;
+  padding: 30px 50px 30px 50px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 
-  h1 {
-    font-size: 32px;
+  .site_title {
+    font-size: 50px;
+
+    .logo {
+      color: skyblue;
+      text-decoration: none;
+      font-family: 'Damion', cursive;
+    }
   }
-
+ 
   ul {
     margin-top: 30px;
-    margin-right: 10px;
-  }
+    display: flex;
+    font-size:  20px;
 
-  .login, .sign-in, .logout {
-    text-decoration: none;
-    color: white;
+    li {
+      display: block;
+
+      .search, .login, .sign-in, .logout {
+        color: skyblue;
+        text-decoration: none;
+        font-family: 'Damion', cursive;
+        padding: 0 1rem;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
   }
-  
 }
+
+/*------------------------------------------------------
+トップ
+------------------------------------------------------*/
+
+  .beach-top {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: url("./GX014341.jpg") center center no-repeat;
+    background-size: cover;
+    background-position: top;
+    color: white;
+    margin-bottom: 150px;
+
+    .top_area_txt {
+      font-family: 'Shippori Mincho B1', serif;  /* "Hannari"; */
+      padding: 500px 0 0 400px;
+      display: flex;
+      flex-direction: column;
+
+      p {
+        padding-bottom: 20px;
+        font-weight: lighter;
+      }
+
+      h1 {
+        font-weight: bolder;
+      }
+    }
+  }
 
 /*------------------------------------------------------
 メイン
@@ -97,7 +113,7 @@
       font-size: 32px;
       max-width: 768px;
       text-align: center;
-      opacity: 0;
+      opacity: 1;
       font-family: 'Shippori Mincho B1', serif;
       position: absolute;
       left: 368px;
