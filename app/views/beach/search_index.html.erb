@@ -1,0 +1,64 @@
+<div class="wrapper">
+  <%= render "header" %>
+  <div class="search_top">
+    <%= form_with(url: beach_search_path, local: true, method: :get, class: "search_form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "キーワード、ビーチ名で検索する", class: "search_input" %>
+      <%= form.submit "検索", class: "search_btn" %>
+    <% end %>
+  </div>
+  <div class="side_bar">
+    <div class="side_bar_head">
+      <p>アクティビティ</p>
+      <div class="activity">
+        <div class="activity_one">
+          <input type="checkbox" id="sea_bathing" name="sea_bathing" class="check_box">
+          <label for="sea_bathing" class="label_name seabath" >海水浴</label>
+        </div>
+        <div class="activity_two">
+          <input type="checkbox" id="snorkeling" name="snorkeling" class="check_box">
+          <label for="snorkeling" class="label_name snorkrel">シュノーケリング</label>
+        </div>
+        <div class="activity_three">
+          <input type="checkbox" id="sup" name="sup" class="check_box">
+          <label for="sup" class="label_name stand">SUP</label>
+        </div>
+        <div class="activity_four">
+          <input type="checkbox" id="surfing" name="surfing" class="check_box">
+          <label for="surfing" class="label_name surf">サーフィン</label>
+        </div>
+        <div class="activity_five">
+          <input type="checkbox" id="bbq_bonfire" name="bbq_bonfire" class="check_box">
+          <label for="bbq_bonfire" class="label_name bbq">BBQ/焚き火</label>
+        </div>
+      </div>
+    </div>  
+    <div class="side_bar_middle">
+      <p>設備</p>
+      <div class="facility">
+        <div class="facility_one">
+          <input type="checkbox" id="life_saver" name="life_saver" class="check_box">
+          <label for="life_saver" class="label_name saver" >ライフセーバー</label>
+        </div>
+        <div class="facility_two">
+          <input type="checkbox" id="protection_net" name="protection_net" class="check_box">
+          <label for="protection_net" class="label_name net">防護ネット</label>
+        </div>
+        <div class="facility_three">
+          <input type="checkbox" id="store" name="store" class="check_box">
+          <label for="store" class="label_name shop">売店</label>
+        </div>
+        <div class="facility_four">
+          <input type="checkbox" id="shower" name="shower" class="check_box">
+          <label for="shower" class="label_name sho">シャワー</label>
+        </div>
+        <div class="facility_five">
+          <input type="checkbox" id="parking" name="parking" class="check_box">
+          <label for="parking" class="label_name park">駐車場</label>
+        </div>
+        <div class="facility_six">
+          <input type="checkbox" id="toilet" name="toilet" class="check_box">
+          <label for="toilet" class="label_name kawaya">トイレ</label>
+        </div>
+    </div>  
+  </div>
+</div>

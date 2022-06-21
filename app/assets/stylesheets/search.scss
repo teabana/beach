@@ -2,24 +2,71 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*------------------------------------------------------
+サーチフォーム
+------------------------------------------------------*/
+.search_top {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  border-top: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
+
+  .search_form {
+    margin-right: 10px;
+    margin: 50px 0 50px;
+
+    .search_input {
+      width: 65%;
+      height: 40px;
+    }
+
+    .search_btn {
+      width: 10%;
+    }
+  }
+}
 
 /*------------------------------------------------------
 サイドバー
 ------------------------------------------------------*/
 
 .side_bar {
-  width: 300px;
+  width: 200px;
   height: 100vh;
+  padding: 20px 0 20px;
+  margin-left: 100px;
 
   .side_bar_head {
-    background-color: #253141;
-    height: 100px;
+    background-color: #ececec;;
+    height: 200px;
     padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
+
+    p {
+      font: 20px;
+      padding: 8px 0 8px;
+      display: block;
+    }
+  }
+
+  .side_bar_middle {
+    background-color: #ececec;;
+    height: 200px;
+    padding: 0 20px;
+    align-items: center;
+    margin-bottom: 20px;
+
+    p {
+      font: 20px;
+      padding: 8px 0 8px;
+      display: block;
+    }
   }
 }
+
+
 
 /*------------------------------------------------------
 メイン
