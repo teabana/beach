@@ -1,0 +1,217 @@
+// Place all the styles related to the beach controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap');
+
+/*------------------------------------------------------
+ヘッダー
+------------------------------------------------------*/
+
+.beach-top {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: url("./GX014341.jpg") center center no-repeat;
+  background-size: cover;
+  color: white;
+  margin-bottom: 150px;
+
+  .top_area_txt {
+    font-family: 'Shippori Mincho B1', serif;  /* "Hannari"; */
+    max-width: 768px;
+    margin-top: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+
+    p {
+      padding-bottom: 20px;
+      font-weight: lighter;
+    }
+
+    h1 {
+      font-weight: bolder;
+    }
+  }
+}
+
+.header {
+  width: 10%;
+  height: 10vh;
+  padding: 50px 50px;
+  writing-mode: vertical-rl;              /*  縦書き */
+  -webkit-writing-mode: vertical-rl;      /*  chrome */
+  -moz-writing-mode: vertical-rl;         /*  Firefox */
+  margin-left: auto;
+  border-radius: 50%;
+  background-color: skyblue;
+  font-family: "Hannari";
+
+  h1 {
+    font-size: 32px;
+  }
+
+  ul {
+    margin-top: 30px;
+    margin-right: 10px;
+  }
+
+  .login, .sign-in, .logout {
+    text-decoration: none;
+    color: white;
+  }
+  
+}
+
+/*------------------------------------------------------
+メイン
+------------------------------------------------------*/
+
+.storyContents {
+  font-family: "Hannari";
+
+  .Block {
+    max-width: 768px;
+    margin-bottom: 150px;
+  }
+
+  .blank {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 2.5;
+  }
+
+  .img-1 {
+    text-align: right;
+    max-width: none;
+    position: relative;
+
+    p {
+      font-size: 32px;
+      max-width: 768px;
+      text-align: center;
+      opacity: 0;
+      font-family: 'Shippori Mincho B1', serif;
+      position: absolute;
+      left: 368px;
+      top: 0;
+    } 
+
+    .adjSize {
+      width: calc(768px + (100% - 768px)/2);
+      opacity: 1;
+      // transform: translate(50%, 0);
+      transition: all 2s ease;
+    
+      &.is-show {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+
+    }
+
+
+  }
+
+  .img-2 {
+    text-align: left;
+    max-width: none;
+    position: relative;
+
+    p {
+      font-size: 32px;
+      max-width: 768px;
+      text-align: center;
+      opacity: 0.5;
+      font-family: 'Shippori Mincho B1', serif;
+      position: absolute;
+      left: 768px;
+      top: 0;
+    }
+
+    .adjSize {
+      width: calc(768px + (100% - 768px)/2);
+    }
+
+  }
+
+  .img-3 {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    p {
+      font-size: 32px;
+      max-width: 768px;
+      text-align: center;
+      color: white;
+      font-family: 'Shippori Mincho B1', serif;
+      position: absolute;
+      left: 30px;
+      top: 0;
+    }
+
+    .adjSize {
+      width: calc(768px + (100% - 768px)/2);
+    }
+
+  } 
+
+  .video-1 {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    p {
+      font-size: 32px;
+      max-width: 768px;
+      text-align: center;
+      color: white;
+      font-family: 'Shippori Mincho B1', serif;
+      position: absolute;
+      right: 30px;
+      top: 0;
+    }
+
+    .adjSize {
+      width: 100%;
+    }
+  }
+
+  .okinawaMap {
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .hokubu {
+      fill: skyblue;
+
+      &:hover {
+       opacity: 0.5; 
+      }
+    }
+
+    .chubu {
+      fill: lightcoral;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    .nanbu {
+      fill: rgb(241, 241, 24);
+      
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
