@@ -1,6 +1,9 @@
 class BeachController < ApplicationController
 
   def index
+    if user_signed_in?
+      @user = User.find(current_user.id)
+    end
   end
 
   def search_index
@@ -28,5 +31,5 @@ class BeachController < ApplicationController
   def beach_params
     params.require(:beach).permit(:beach, :detail, :area_id, { :activity_id => [] }, { :facility_id => []}, :image).merge(user_id: current_user.id)
   end
-  
+
 end
