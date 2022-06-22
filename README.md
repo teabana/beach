@@ -78,21 +78,16 @@ belongs_to :beach
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | beach              | string     | null: false                    |
-| parking_id         | integer    | null: false                    |
-| shower_id          | integer    | null: false                    |
-| protection_net_id  | integer    | null: false                    |
-| life_saver_id      | integer    | null: false                    |
-| toilet_id          | integer    | null: false                    |
-| snorkeling_id      | integer    | null: false                    |
-| surfing_id         | integer    | null: false                    |
-| bonfire_id         | integer    | null: false                    |
-| bbq_id             | integer    | null: false                    |
-| alcohol_id         | integer    | null: false                    |
+| detail             | text       | null: false                    |
+| area_id            | integer    | null: false                    |
+| activity_id        | integer    | null: false                    |
+| facility_id        | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
 ## Association
 
-bas_one :post
-has_one :beach_detail
+belongs_to :user
+has_one    :beach_detail
 
 ## beach_detailsテーブル
 
