@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <%= render "header" %>
+  <%= render "header", user: @user %>
   <div class="search_top">
     <%= form_with(url: beach_search_path, local: true, method: :get, class: "search_form") do |form| %>
       <%= form.text_field :keyword, placeholder: "キーワード、ビーチ名で検索する", class: "search_input" %>

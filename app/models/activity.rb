@@ -8,6 +8,6 @@ class Activity < ActiveHash::Base
   ]
   
   include ActiveHash::Associations
-  has_many :beachs
+  has_many :beach_activitys
 
 end

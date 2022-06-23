@@ -1,0 +1,160 @@
+// Place all the styles related to the beach controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url('https://fonts.googleapis.com/css2?family=Damion&family=Shippori+Mincho+B1:wght@400;700&display=swap');
+
+/*------------------------------------------------------
+Beach情報入力
+------------------------------------------------------*/
+
+.beach_register_main {
+  width: 100vw;
+  height: 100vh;
+  background: url("./PXL_20210718_030923952.jpg") center center no-repeat;
+  background-size: cover;
+  font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 500px;
+  color: white;
+  font-family: 'Damion', cursive;
+
+  .beach_register_box {
+    margin:  auto auto ;
+    width: 600px;
+    height: 800px;
+    backdrop-filter: blur(20px);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+
+    .beach_register_title {
+      width: 100%;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      min-width: 450px;
+      padding: 30px 0 30px;
+    }
+  }
+}
+
+.beach_info_title {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  margin: 10px 0 10px;
+
+  &::before, &::after {
+    content: "";
+    height: 3px;
+    flex-grow: 1;
+  }
+
+  &::before {
+    margin-right: 1rem;
+    background: linear-gradient(-90deg, rgb(224, 154, 23), transparent);
+  }
+
+  &::after {
+    margin-left: 1rem;
+    background: linear-gradient(90deg, rgb(224, 154, 23), transparent);
+  }
+}
+
+/*------------------------------------------------------
+基本情報
+------------------------------------------------------*/
+.form_box {
+  margin-left: 20px;
+}
+
+.item_title {
+  font-size: 15px;
+  padding: 10px 0 10px;
+  
+}
+
+#item_name, #item_info {
+  width: 96%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+
+  &:focus {
+    border-bottom: 2px solid #16a085;
+    color: white;
+    transition: 0.2s ease;
+    &+ .fa-person-swimming,+ .fa-envelope,
+    + .fa-key,+ .fa-lock {
+      opacity: 1;
+    }
+  }
+}
+
+#item_info {
+  height: 100px;
+}
+
+
+
+/*------------------------------------------------------
+チェックボックス
+------------------------------------------------------*/
+
+.check_box {
+
+  label {
+    font-size: 15px;
+    padding: 0 10px 0 10px;
+  }
+}
+
+/*------------------------------------------------------
+ボタン
+------------------------------------------------------*/
+
+.btn_contents {
+  width: 100%;
+  text-align: center;
+
+  .register_btn, .back_btn {
+    margin-top: 70px;
+    width: 120px;
+    height: 32px;
+    background: skyblue;
+    border: none;
+    color: #fff;
+    font-family: 'Robot', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
+    border-radius: 30px;
+
+    &:hover, :focus {
+      opacity: 0.8;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) ;
+      transition: 0.1s ease;
+    }
+
+    &:active {
+      opacity: 1;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+      transition: 0.1s ease;
+    }
+  }
+}
+
+/*------------------------------------------------------
+エラー
+------------------------------------------------------*/
+
+.error_alert {
+  text-align: center;
+  color: red;
+}

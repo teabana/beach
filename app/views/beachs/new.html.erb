@@ -1,0 +1,86 @@
+<div class="beach_register">
+  <%= render "header", user: @user %>
+  <div class="beach_register_main">
+    <div class="beach_register_box">
+      <h2 class="beach_register_title">Beach Information Input</h2>
+      <%= form_with model: @beach_formobject, url: beachs_path, local: true do |f| %>
+      <div class="beach_info_base">
+        <%= render "error_messages", model: f.object %>
+        <div class="beach_info_title base">
+          Basic information
+        </div>
+        <%# ビーチ名 %>
+        <div class="form_box name">
+          <div class="item_title">
+            Name
+          </div>
+          <div class="item_input">
+            <%= f.text_area :beach, class:"items_text", id:"item_name", maxlength:"40" %>
+          </div>
+        </div>
+        <%# /ビーチ名 %>
+        <%# ビーチ画像 %>
+        <div class="form_box image">
+          <div class="item_title">
+            Photo
+          </div>
+          <div class="item_input">
+            <%= f.file_field :image, id:"item_image" %>
+          </div>
+        </div>
+        <%# /ビーチ画像 %>
+        <%# ビーチ説明 %>
+        <div class="form_box name">
+          <div class="item_title">
+            Detail
+          </div>
+          <div class="item_input">
+            <%= f.text_area :detail, class:"items_text", id:"item_info", maxlength:"1000" %>
+          </div>
+        </div>
+        <%# /ビーチ説明 %>
+        <%# 地域 %>
+        <div class="form_box name">
+          <div class="item_title">
+            Area
+          </div>
+          <div class="item_input">
+            <%= f.collection_select :area_id, Area.all, :id, :name, {include_hidden: false}, {class: "select_box", id:"area"} %>
+          </div>
+        </div>
+        <%# /地域 %>
+      </div>
+      <div class="beach_info activity">
+        <div class="beach_info_title activity">
+          Activity
+        </div>
+        <%# アクティビティ %>
+        <div class="form_box activity">
+          <div class="item_input check_box">
+            <%= f.collection_check_boxes :activity_id, Activity.all, :id, :name, {include_hidden: false}, {class: 'check_box', id:'activity'} %>
+          </div>
+        </div>
+        <%# /アクティビティ %>
+      </div>
+      <div class="beach_info facility">
+        <div class="beach_info_title activity">
+          Facility
+        </div>
+        <%# 設備 %>
+        <div class="form_box facility ">
+          <div class="item_input check_box">
+            <%= f.collection_check_boxes :facility_id, Facility.all, :id, :name,  {include_hidden: false}, {class:"check_box", id:"facility"} %>
+          </div>
+        </div>
+        <%# /設備 %>
+      </div>
+      <%# 下部ボタン %>
+      <div class="btn_contents">
+        <%= f.submit "Register" ,class:"register_btn" %>
+        <%# <%=link_to 'Back', root_path, class:"back_btn" %>
+      </div>
+      <%# /下部ボタン %>
+      <% end %>
+    </div>
+  </div>
+</div>
