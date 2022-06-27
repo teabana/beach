@@ -1,11 +1,12 @@
 class BeachsController < ApplicationController
-  before_action :user_signed?, only: [:index, :search_index, :new, :create]
+  before_action :find_beach, only: [:show, :delete, :edit, :update]
+  before_action :user_signed?, only: [:index, :search_index, :new, :create, :show, :edit, :update]
 
   def index
   end
 
   def search_index
-
+    @beach = Beach.all
   end
 
   def search
@@ -17,16 +18,39 @@ class BeachsController < ApplicationController
 
   def create 
     @beach_formobject = BeachFormobject.new(beach_formobject_params)
-    # binding.pry
     if @beach_formobject.valid?
       @beach_formobject.save
       redirect_to root_path
     else
-      binding.pry
+      # binding.pry
       render :new
     end
   end
 
+  def show
+  end
+
+  def edit
+    @beach_formobject = BeachFormobject.new(beach: @beach)
+    # binding.pry
+  end
+
+  def update
+    binding.pry
+    @beach_formobject = BeachFormobject.new(beach_formobject_params, beach: @beach)
+    if @beach_formobject.valid?
+      @beach_formobject.save
+      redirect_to beach_search_path
+    else
+      binding.pry
+      render :edit
+    end
+  end
+
+  def destroy
+    @beach.delete
+    redirect_to root_path
+  end
 
   private
 
@@ -35,6 +59,7 @@ class BeachsController < ApplicationController
       :beach, :detail, :area_id, :image, {activity_id: []}, {facility_id: []}).merge(
         user_id: current_user.id
       )
+      # binding.pry
   end
 
   def user_signed?
@@ -42,6 +67,10 @@ class BeachsController < ApplicationController
     if user_signed_in?
       @user = User.find(current_user.id)
     end
+  end
+
+  def find_beach
+    @beach = Beach.find(params[:id])
   end
 
 end

@@ -1,0 +1,118 @@
+/*-----------------------------------------------------
+トップ
+------------------------------------------------------*/
+
+.beach_box_show_img {
+  width: 100vw;
+  height: 800px;
+}
+
+/*-----------------------------------------------------
+メイン
+------------------------------------------------------*/
+.show_main {
+  width: 100vw;
+  height: 100vh;
+
+  .show_main_block {
+    width: 500px;
+    height: 800px;
+    margin: 50px auto 0;
+
+    h3 {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin: 20px 0 20px;
+
+      &::before, &::after {
+        content: "";
+        height: 3px;
+        flex-grow: 1;
+      }
+    
+      &::before {
+        margin-right: 1rem;
+        background: linear-gradient(-90deg, skyblue, transparent);
+      }
+    
+      &::after {
+        margin-left: 1rem;
+        background: linear-gradient(90deg, skyblue, transparent);
+      }
+    }
+
+    .info_beach {
+      width: 100%;
+      display: flex;
+      padding-bottom: 30px;
+
+      .beach_contein_title {
+        width: 100px;
+        font-size: 15px;
+      }
+
+      .beach_contein {
+        width: 100px;
+        padding-left: 100px;
+        color: gray
+      }
+    }
+
+    .info_beach_name {
+      display: flex;
+      // justify-content: space-around;
+      color: gray;
+      justify-content: center;
+      ;
+    
+      .info_beach_activity, .info_beach_facility {
+        // display: block;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  #invisible_links {
+    display: flex;
+    width: 400px;
+    justify-content: center;
+    margin: 50px auto 0;
+
+    .beach_edit_btn,.beach_destroy_btn {
+      display: block;
+      width: 120px;
+      height: 32px;
+      line-height: 32px;
+      background: skyblue;
+      border: none;
+      color: #fff;
+      font-family: 'Robot', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      transition: 0.1s ease;
+      cursor: pointer;
+      border-radius: 30px;
+      text-decoration: none;
+      text-align: center;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    .beach_edit_btn {
+      background-color: skyblue;
+    }
+
+    .or-text {
+      font-size: 20px;
+      padding: 0 20px 0 20px;
+    }
+
+    .beach_destroy_btn {
+      background-color: green;
+    }
+  }
+}
+

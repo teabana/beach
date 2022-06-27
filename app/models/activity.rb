@@ -9,5 +9,6 @@ class Activity < ActiveHash::Base
   
   include ActiveHash::Associations
   has_many :beach_activitys
+  # has_many :beachs ,through: :beach_activitys
 
 end

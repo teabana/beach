@@ -66,9 +66,46 @@
   }
 }
 
-
-
 /*------------------------------------------------------
 メイン
 ------------------------------------------------------*/
 
+.main {
+  display: flex;
+  
+}
+
+.right_main {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 0 0 40px;
+
+  a {
+    text-decoration: none;
+  }
+
+  #beach_box {
+    padding-right: 30px;
+
+    img {
+      width: 260px;
+      height: 200px;
+      border-radius: 30px;
+      padding-bottom: 10px;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    .beach_name {
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}

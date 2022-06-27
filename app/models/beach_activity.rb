@@ -4,5 +4,5 @@ class BeachActivity < ApplicationRecord
   belongs_to :beach
   belongs_to :user
   
-  belongs_to :activity
+  belongs_to_active_hash :activity
 end

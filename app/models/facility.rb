@@ -10,5 +10,6 @@ class Facility < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :beach_facilitiys
+  has_many :beachs, through: :beach_facilitiys
 
 end

@@ -1,0 +1,55 @@
+<div class="wrapper">
+  <%= render "header", user: @user %>
+  <div class="beach-show">
+    <div class="show_top">
+      <%= image_tag @beach.image, alt:"beach_sample.jpg" ,class: "beach_box_show_img" %>
+    </div>
+    <div class="show_main">
+      <div class="show_main_block">
+        <div class="beach-info basic">
+          <h3 class="info_title">ビーチ情報</h3>
+          <div class="info_beach" id="info_name">
+            <div class="beach_contein_title">ビーチ名</div>
+            <div class="beach_contein">
+              <%= @beach.beach %>
+            </div>
+          </div>
+          <div class="info_beach" id="info_detail">
+            <div class="beach_contein_title">ビーチ詳細</div>
+            <div class="beach_contein">
+              <%= @beach.detail %>
+            </div>
+          </div>
+          <div class="info_beach" id="info_area">
+            <div class="beach_contein_title">ビーチエリア</div>
+            <div class="beach_contein">
+              <%= @beach.area.name %>
+            </div>
+          </div>
+        </div>
+        <div class="beach-info activity">
+          <h3 class="info_title">アクティビティ</h3>
+           <div class="info_beach_name">
+            <% (@beach.beach_activitys).each do |activity| %>
+              <p class="info_beach_activity">・<%= activity.activity.name %></p>
+            <% end %>
+          </div>
+        <div class="beach-info facility">
+          <h3 class="info_title">施設情報</h3>
+          <div class="info_beach_name">
+            <% (@beach.beach_facilitys).each do |facility| %>
+              <p class="info_beach_facility">・<%= facility.facility.name %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="invisible_links">
+        <% if @beach.user.admin == true %>
+          <%= link_to "Edit", edit_beach_path(@beach), method: :get, class: "beach_edit_btn" %>
+            <p class="or-text">or</p>
+          <%= link_to "Delete", beach_path(@beach), method: :delete, class:"beach_destroy_btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
