@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_23_085243) do
+ActiveRecord::Schema.define(version: 2022_07_01_131955) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,17 +31,6 @@ ActiveRecord::Schema.define(version: 2022_06_23_085243) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "beach_actfacs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "beach_id", null: false
-    t.bigint "user_id", null: false
-    t.integer "activity_id", null: false
-    t.integer "facility_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["beach_id"], name: "index_beach_actfacs_on_beach_id"
-    t.index ["user_id"], name: "index_beach_actfacs_on_user_id"
   end
 
   create_table "beach_activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -65,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_06_23_085243) do
   end
 
   create_table "beaches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "beach", null: false
+    t.string "name", null: false
     t.text "detail", null: false
     t.integer "area_id", null: false
     t.bigint "user_id", null: false
@@ -89,8 +78,6 @@ ActiveRecord::Schema.define(version: 2022_06_23_085243) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "beach_actfacs", "beaches"
-  add_foreign_key "beach_actfacs", "users"
   add_foreign_key "beach_activities", "beaches"
   add_foreign_key "beach_activities", "users"
   add_foreign_key "beach_facilities", "beaches"

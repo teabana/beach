@@ -3,7 +3,7 @@
   <div class="beach_register_main">
     <div class="beach_register_box">
       <h2 class="beach_register_title">Beach Information Edit</h2>
-      <%= form_with model: @beach_formobject, url: beach_path, method: :patch ,local: true do |f| %>
+      <%= form_with(model: @beach_formobject, url: beach_path, method: :patch ,local: true) do |f| %>
       <div class="beach_info_base">
         <%# <%= render "error_messages", model: f.object %>
         <div class="beach_info_title base">
@@ -15,7 +15,7 @@
             Name
           </div>
           <div class="item_input">
-            <%= f.text_area :beach, class:"items_text", id:"item_name", maxlength:"40" %>
+            <%= f.text_area :name, class:"items_text", id:"item_name", maxlength:"40" %>
           </div>
         </div>
         <%# /ビーチ名 %>
@@ -57,8 +57,8 @@
         <%# アクティビティ %>
         <div class="form_box activity">
           <div class="item_input check_box">
-            <%# <%= f.collection_check_boxes :activity_id, Activity.all, :id, :name, { checked: @beach_formobject.activity_id.map(&:to_param), include_hidden: false}, {class: 'check_box', id:'activity'} %>
-            <%= f.collection_check_boxes :activity_id, Activity.all, :id, :name, { checked: @beach_formobject.activity_id.map(&:to_param), include_hidden: false}, {class: 'check_box', id:'activity'} %>
+            <%= f.collection_check_boxes :activity_id, Activity.all, :id, :name, { checked: @beach_formobject.activity_id, include_hidden: false}, {class: 'check_box', id:'activity'} %>
+            <%# <%= f.collection_check_boxes :activity_id, Activity.all, :id, :name, { checked: @beach_formobject.beach_activitys.map(&:activity_id), include_hidden: false}, {class: 'check_box', id:'activity'} %> 
           </div>
         </div>
         <%# /アクティビティ %>
@@ -70,7 +70,8 @@
         <%# 設備 %>
         <div class="form_box facility ">
           <div class="item_input check_box">
-            <%= f.collection_check_boxes :facility_id, Facility.all, :id, :name,{ checked: @beach_formobject.facility_id.map(&:to_param), include_hidden: false}, {class:"check_box", id:"facility"} %>
+            <%# <%= f.collection_check_boxes :facility_id, Facility.all, :id, :name,{ checked: @beach_formobject.facilitys.pluck(&:to_param), include_hidden: false}, {class:"check_box", id:"facility"} %> %>
+            <%= f.collection_check_boxes :facility_id, Facility.all, :id, :name,{ checked: @beach_formobject.facility_id, include_hidden: false}, {class:"check_box", id:"facility"} %>
           </div>
         </div>
         <%# /設備 %>

@@ -17,7 +17,7 @@ class BeachsController < ApplicationController
   end
 
   def create 
-    @beach_formobject = BeachFormobject.new(beach_formobject_params)
+    @beach_formoexitbject = BeachFormobject.new(beach_formobject_params)
     if @beach_formobject.valid?
       @beach_formobject.save
       redirect_to root_path
@@ -31,15 +31,18 @@ class BeachsController < ApplicationController
   end
 
   def edit
+    # binding.pry
     @beach_formobject = BeachFormobject.new(beach: @beach)
     # binding.pry
   end
 
   def update
-    binding.pry
+    # binding.pry
     @beach_formobject = BeachFormobject.new(beach_formobject_params, beach: @beach)
+    @beach_formobject.image ||= @beach.image.blob
+    
     if @beach_formobject.valid?
-      @beach_formobject.save
+      @beach_formobject.update
       redirect_to beach_search_path
     else
       binding.pry
@@ -55,15 +58,14 @@ class BeachsController < ApplicationController
   private
 
   def beach_formobject_params
+    # binding.pry
     params.require(:beach_formobject).permit(
-      :beach, :detail, :area_id, :image, {activity_id: []}, {facility_id: []}).merge(
+      :name, :detail, :area_id, :image, activity_id: [], facility_id: []).merge(
         user_id: current_user.id
       )
-      # binding.pry
   end
 
   def user_signed?
-
     if user_signed_in?
       @user = User.find(current_user.id)
     end

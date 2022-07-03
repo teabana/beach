@@ -2,12 +2,12 @@ class BeachFormobject
   include ActiveModel::Model
   include ActiveModel::Attributes
 
-  attr_accessor :user_id, :beach, :detail, :area_id, :image, 
-                :beach_id, :activity_id, :facility_id  
+  attr_accessor :user_id, :name, :detail, :area_id, :image, 
+                :beach_id, :activity_id, :facility_id, :activitys, :facilitys
 
   with_options presence: true do
     validates :user_id
-    validates :beach
+    validates :name
     validates :detail
     validates :area_id
     # validates :beach_id
@@ -16,65 +16,74 @@ class BeachFormobject
     validates :image
   end
 
-  def initialize(attributes = nil,beach: Beach.new )
+  # delegate :persisted?, to: :beach
+
+  def initialize(attributes = nil, beach: Beach.new )
     @beach = beach
-    # new_attributes = default_attributes.merge(attributes)
-    # default_attributes
     attributes ||= default_attributes
     # binding.pry
     super(attributes)
   end
 
   # def to_model
-  #   @beach
+  #   beach
   # end
 
   def save
-
     raturn false if invalid?
 
     ActiveRecord::Base.transaction do
-      @beachs = Beach.update(beach: beach, detail: detail, area_id: area_id, image: image, user_id: user_id)
-      binding.pry
-      activity_id.each do |activity|
-        # BeachActivity.create(beach_id: @beachs.id, user_id: user_id, activity_id: activity)
-        @beachs.beach_activitys.update(beach_id: @beachs.id, activity_id: activity, user_id: user_id)
-      end
+      # @newbeach = Beach.create(beach: beach, detail: detail, area_id: area_id, image: image, user_id: user_id)
+      # activity_id.each do |activity|
+      #   BeachActivity.create(beach_id: @newbeach.id, activity_id: activity, user_id: user_id)
+      # end
       
-      facility_id.each do |facility|
-        # BeachFacility.create(beach_id: @beachs.id, user_id: user_id, facility_id: facility)
-        @beachs.beach_facilitys.create(beach_id: @beachs.id, facility_id: facility, user_id: user_id)
-      end
+      # facility_id.each do |facility|
+      #   BeachFacility.create(beach_id: @newbeach.id, facility_id: facility, user_id: user_id)
+      # binding.pry
+      # beach_activitys = activity_id.map{|activity_id| BeachActivity.where(beach_id: @beach.id).first_or_create} 
+      # beach_facilitys = facility_id.map{|facility_id| BeachFacility.where(beach_id: @beach.id, facility_id: facility_id).first_or_create} 
+      # binding.pry
+      @beach.update!(name: name, detail: detail, area_id: area_id, image: image, user_id: user_id)
+        # beach_activitys: beach_activitys, beach_facilitys: beach_activitys)
+      
     end
 
     true
   end
 
-  def update(params)
-    self.attributes = params
-    save
-    # @beach = Beach.update(beach: beach, detail: detail, area_id: area_id, image: image, user_id: user_id)
-    # activity_id.each do |activity|
-    #   BeachActivity.update(beach_id: @beach.id, user_id: user_id, activity_id: activity)
-    # end
-    # facility_id.each do |facility|
-    #   BeachFacility.update(beach_id: @beach.id, user_id: user_id, facility_id: facility)
-    # end
+  def update
+    raturn false if invalid?
+    ActiveRecord::Base.transaction do
+      BeachActivity.where(beach_id: @beach.id).delete_all
+      activity_id.each do |activity|
+        activityIDs = BeachActivity.where(beach_id: @beach.id, user_id: user_id, activity_id: activity).first_or_initialize if activity.present?
+        activityIDs.save if activity.present?
+      end
+
+      BeachFacility.where(beach_id: @beach.id).delete_all
+      facility_id.each do |facility|
+        facilityIDs = BeachFacility.where(beach_id: @beach.id, user_id: user_id, facility_id: facility).first_or_initialize if facility.present?
+        facilityIDs.save if facility.present?
+      end
+
+      @beach.update!(name: name, detail: detail, area_id: area_id, image: image, user_id: user_id)
+    end
+
+    true
   end
 
   private
 
   def default_attributes
     {
-      beach: @beach.beach,
+      name: @beach.name,
       detail: @beach.detail,
       area_id: @beach.area_id,
       image: @beach.image,
       user_id: @beach.user_id,
-      # beach_id: @beach.id,
-      activity_id: @beach.beach_activitys.map(&:activity_id),
-      facility_id: @beach.beach_facilitys.map(&:facility_id)
+      activity_id: @beach.beach_activitys.pluck(:activity_id),
+      facility_id: @beach.beach_facilitys.pluck(:facility_id)
     }
-    # binding.pry
   end
 end
