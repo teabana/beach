@@ -1,5 +1,5 @@
 class BeachsController < ApplicationController
-  before_action :find_beach, only: [:show, :delete, :edit, :update]
+  before_action :find_beach, only: [:show, :destroy, :edit, :update]
   before_action :user_signed?, only: [:index, :search_index, :new, :create, :show, :edit, :update]
 
   def index
@@ -22,7 +22,6 @@ class BeachsController < ApplicationController
       @beach_formobject.save
       redirect_to root_path
     else
-      # binding.pry
       render :new
     end
   end
@@ -31,34 +30,29 @@ class BeachsController < ApplicationController
   end
 
   def edit
-    # binding.pry
     @beach_formobject = BeachFormobject.new(beach: @beach)
-    # binding.pry
   end
 
   def update
-    # binding.pry
     @beach_formobject = BeachFormobject.new(beach_formobject_params, beach: @beach)
     @beach_formobject.image ||= @beach.image.blob
-    
+
     if @beach_formobject.valid?
       @beach_formobject.update
       redirect_to beach_search_path
     else
-      binding.pry
       render :edit
     end
   end
 
   def destroy
-    @beach.delete
-    redirect_to root_path
+    @beach.destroy
+    redirect_to beach_search_path
   end
 
   private
 
   def beach_formobject_params
-    # binding.pry
     params.require(:beach_formobject).permit(
       :name, :detail, :area_id, :image, activity_id: [], facility_id: []).merge(
         user_id: current_user.id
