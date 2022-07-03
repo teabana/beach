@@ -10,6 +10,10 @@ class BeachsController < ApplicationController
   end
 
   def search
+    return nil if params[:keyword] == ""
+    @beach = Beach.where(['name LIKE ?', "%#{params[:keyword]}%"] )
+    binding.pry
+    render json:{ keyword: @beach }
   end
 
   def new

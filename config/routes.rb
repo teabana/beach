@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'beachs#index'
   resources :beachs do
     collection do
-      get 'serch'
+      get 'search'
     end
   end
   get 'beach/search', to: 'beachs#search_index'

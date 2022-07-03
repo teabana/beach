@@ -4,6 +4,7 @@
     <%= form_with(url: beach_search_path, local: true, method: :get, class: "search_form") do |form| %>
       <%= form.text_field :keyword, placeholder: "キーワード、ビーチ名で検索する", class: "search_input" %>
       <%= form.submit "検索", class: "search_btn" %>
+      <div id="search_result"></div>
     <% end %>
   </div>
   <div class="main">
