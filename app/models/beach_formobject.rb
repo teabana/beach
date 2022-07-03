@@ -10,7 +10,6 @@ class BeachFormobject
     validates :name
     validates :detail
     validates :area_id
-    # validates :beach_id
     validates :activity_id
     validates :facility_id
     validates :image
@@ -33,19 +32,15 @@ class BeachFormobject
     raturn false if invalid?
 
     ActiveRecord::Base.transaction do
-      # @newbeach = Beach.create(beach: beach, detail: detail, area_id: area_id, image: image, user_id: user_id)
-      # activity_id.each do |activity|
-      #   BeachActivity.create(beach_id: @newbeach.id, activity_id: activity, user_id: user_id)
-      # end
-      
-      # facility_id.each do |facility|
-      #   BeachFacility.create(beach_id: @newbeach.id, facility_id: facility, user_id: user_id)
-      # binding.pry
-      # beach_activitys = activity_id.map{|activity_id| BeachActivity.where(beach_id: @beach.id).first_or_create} 
-      # beach_facilitys = facility_id.map{|facility_id| BeachFacility.where(beach_id: @beach.id, facility_id: facility_id).first_or_create} 
-      # binding.pry
-      @beach.update!(name: name, detail: detail, area_id: area_id, image: image, user_id: user_id)
-        # beach_activitys: beach_activitys, beach_facilitys: beach_activitys)
+      @newbeach = Beach.create(name: name, detail: detail, area_id: area_id, image: image, user_id: user_id)
+
+      activity_id.each do |activity|
+        BeachActivity.create(beach_id: @newbeach.id, activity_id: activity, user_id: user_id)
+      end
+  
+      facility_id.each do |facility|
+        BeachFacility.create(beach_id: @newbeach.id, facility_id: facility, user_id: user_id)
+      end
       
     end
 

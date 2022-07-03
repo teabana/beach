@@ -17,10 +17,10 @@ class BeachsController < ApplicationController
   end
 
   def create 
-    @beach_formoexitbject = BeachFormobject.new(beach_formobject_params)
+    @beach_formobject = BeachFormobject.new(beach_formobject_params)
     if @beach_formobject.valid?
       @beach_formobject.save
-      redirect_to root_path
+      redirect_to beach_search_path
     else
       render :new
     end

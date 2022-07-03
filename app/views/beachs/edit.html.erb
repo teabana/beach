@@ -58,7 +58,6 @@
         <div class="form_box activity">
           <div class="item_input check_box">
             <%= f.collection_check_boxes :activity_id, Activity.all, :id, :name, { checked: @beach_formobject.activity_id, include_hidden: false}, {class: 'check_box', id:'activity'} %>
-            <%# <%= f.collection_check_boxes :activity_id, Activity.all, :id, :name, { checked: @beach_formobject.beach_activitys.map(&:activity_id), include_hidden: false}, {class: 'check_box', id:'activity'} %> 
           </div>
         </div>
         <%# /アクティビティ %>
@@ -70,7 +69,6 @@
         <%# 設備 %>
         <div class="form_box facility ">
           <div class="item_input check_box">
-            <%# <%= f.collection_check_boxes :facility_id, Facility.all, :id, :name,{ checked: @beach_formobject.facilitys.pluck(&:to_param), include_hidden: false}, {class:"check_box", id:"facility"} %> %>
             <%= f.collection_check_boxes :facility_id, Facility.all, :id, :name,{ checked: @beach_formobject.facility_id, include_hidden: false}, {class:"check_box", id:"facility"} %>
           </div>
         </div>

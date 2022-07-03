@@ -15,7 +15,7 @@
   height: 100vh;
 
   .show_main_block {
-    width: 500px;
+    width: 600px;
     height: 800px;
     margin: 50px auto 0;
 
@@ -53,21 +53,26 @@
       }
 
       .beach_contein {
+        margin-left: 100px;
         width: 100px;
-        padding-left: 100px;
-        color: gray
+        color: gray;
+      }
+    }
+
+    #info_detail {
+      
+      .beach_contein {
+        width: 400px;
       }
     }
 
     .info_beach_name {
       display: flex;
-      // justify-content: space-around;
       color: gray;
       justify-content: center;
       ;
     
       .info_beach_activity, .info_beach_facility {
-        // display: block;
         margin-right: 20px;
       }
     }

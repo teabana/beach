@@ -23,6 +23,9 @@
 
     .search_btn {
       width: 10%;
+      height: 40px;
+      border-radius: 30px;
+      background-color: rgb(134, 193, 217);
     }
   }
 }
@@ -33,9 +36,10 @@
 
 .side_bar {
   width: 200px;
-  height: 100vh;
+  height: 500px;
   padding: 20px 0 20px;
   margin-left: 100px;
+  box-sizing: border-box;
 
   .side_bar_head {
     background-color: #ececec;;
@@ -43,6 +47,7 @@
     padding: 0 20px;
     align-items: center;
     margin-bottom: 20px;
+    
 
     p {
       font: 20px;
@@ -72,10 +77,10 @@
 
 .main {
   display: flex;
-  
 }
 
 .right_main {
+  float: right;
   display: flex;
   flex-wrap: wrap;
   padding: 20px 0 0 40px;
@@ -86,6 +91,8 @@
 
   #beach_box {
     padding-right: 30px;
+    width: 260px;
+    height: 400px;
 
     img {
       width: 260px;
@@ -107,5 +114,13 @@
         opacity: 0.5;
       }
     }
+  }
+}
+
+@media(max-width: 1000px) {
+  .side_bar, .right_main {
+    float: none;
+    margin: 0;
+    width: auto;
   }
 }
