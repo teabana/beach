@@ -58,13 +58,27 @@
     height: 200px;
     padding: 0 20px;
     align-items: center;
-    margin-bottom: 20px;
-    
 
+    margin-bottom: 20px;
     p {
       font: 20px;
       padding: 8px 0 8px;
       display: block;
+    }
+    
+
+    .activitys {
+      display: flex;
+      flex-flow: column;
+
+      .activity {
+        display: flex;
+
+        .checkbox {
+          display: block;
+          margin-right: 10px;
+        }
+      }
     }
   }
 
@@ -79,6 +93,20 @@
       font: 20px;
       padding: 8px 0 8px;
       display: block;
+    }
+
+    .facilitys {
+      display: flex;
+      flex-flow: column;
+
+      .facility {
+        display: flex;
+
+        .checkbox {
+          display: block;
+          margin-right: 10px;
+        }
+      }
     }
   }
 }

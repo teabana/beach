@@ -1,69 +1,38 @@
 <div class="wrapper">
   <%= render "header", user: @user %>
   <div class="search_top">
-    <%= form_with(url: beach_search_path, local: true, method: :get, class: "search_form") do |form| %>
+    <%= form_with(url: beach_search_path, local: true, method: :get, class: "search_form") do |form| %>% 
       <%= form.text_field :keyword, placeholder: "キーワード、ビーチ名で検索する", class: "search_input" %>
       <%= form.submit "検索", class: "search_btn" %>
       <div id="search_result"></div>
     <% end %>
   </div>
   <div class="main">
+    <%= search_form_for @q, url: beach_search_path, html: {id: "detailed_search_form", class: "search_form" } do |f| %>
     <div class="side_bar">
       <div class="side_bar_head">
         <p>アクティビティ</p>
-        <div class="activity">
-          <div class="activity_one">
-            <input type="checkbox" id="sea_bathing" name="sea_bathing" class="check_box">
-            <label for="sea_bathing" class="label_name seabath" >海水浴</label>
-          </div>
-          <div class="activity_two">
-            <input type="checkbox" id="snorkeling" name="snorkeling" class="check_box">
-            <label for="snorkeling" class="label_name snorkrel">シュノーケリング</label>
-          </div>
-          <div class="activity_three">
-            <input type="checkbox" id="sup" name="sup" class="check_box">
-            <label for="sup" class="label_name stand">SUP</label>
-          </div>
-          <div class="activity_four">
-            <input type="checkbox" id="surfing" name="surfing" class="check_box">
-            <label for="surfing" class="label_name surf">サーフィン</label>
-          </div>
-          <div class="activity_five">
-            <input type="checkbox" id="bbq_bonfire" name="bbq_bonfire" class="check_box">
-            <label for="bbq_bonfire" class="label_name bbq">BBQ/焚き火</label>
-          </div>
+        <div class="activitys">
+          <%= f.collection_check_boxes(:beach_activitys_activity_id_in, Activity.all, :id, :name, {include_hidden: false}, {class: "checkbox", id:"activity_check"}) do |b| %>
+            <div class="activity">
+              <%= b.check_box + b.label { b.text }%>
+            </div>
+          <% end %>
         </div>
       </div>  
       <div class="side_bar_middle">
         <p>設備</p>
-        <div class="facility">
-          <div class="facility_one">
-            <input type="checkbox" id="life_saver" name="life_saver" class="check_box">
-            <label for="life_saver" class="label_name saver" >ライフセーバー</label>
-          </div>
-          <div class="facility_two">
-            <input type="checkbox" id="protection_net" name="protection_net" class="check_box">
-            <label for="protection_net" class="label_name net">防護ネット</label>
-          </div>
-          <div class="facility_three">
-            <input type="checkbox" id="store" name="store" class="check_box">
-            <label for="store" class="label_name shop">売店</label>
-          </div>
-          <div class="facility_four">
-            <input type="checkbox" id="shower" name="shower" class="check_box">
-            <label for="shower" class="label_name sho">シャワー</label>
-          </div>
-          <div class="facility_five">
-            <input type="checkbox" id="parking" name="parking" class="check_box">
-            <label for="parking" class="label_name park">駐車場</label>
-          </div>
-          <div class="facility_six">
-            <input type="checkbox" id="toilet" name="toilet" class="check_box">
-            <label for="toilet" class="label_name kawaya">トイレ</label>
-          </div>
+        <div class="facilitys">
+          <%= f.collection_check_boxes(:beach_facilitys_facility_id_in, Facility.all, :id, :name, {include_hidden: false}, {class: "checkbox", id:"facility_check"}) do |b| %>
+              <div class="facility">
+                <%= b.check_box + b.label { b.text }%>
+              </div>
+            <% end %>
         </div>
       </div>  
+      <%= f.submit '検索' %>
     </div>
+    <% end %>
     <div class="right_main">
       <% @beach.each do |beach| %>
         <%= link_to beach_path(beach.id) do %>
