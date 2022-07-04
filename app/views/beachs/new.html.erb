@@ -5,7 +5,7 @@
       <h2 class="beach_register_title">Beach Information Input</h2>
       <%= form_with model: @beach_formobject, url: beachs_path, local: true do |f| %>
       <div class="beach_info_base">
-        <%= render "error_messages", model: f.object %>
+        <%= render "layouts/error_messages", model: f.object %>
         <div class="beach_info_title base">
           Basic information
         </div>
