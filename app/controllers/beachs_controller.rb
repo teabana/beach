@@ -6,18 +6,18 @@ class BeachsController < ApplicationController
   end
 
   def search_index
-    # @beach = Beach.all
+    if params[:q]&.dig(:name)
+      squished_keywords = params[:q][:name].squish
+      params[:q][:name_cont_any] = squished_keywords.split(" ")
+    end
     @q = Beach.ransack(params[:q])
     @beach = @q.result.includes(:beach_activitys, :beach_facilitys)
-    # binding.pry
   end
 
   def search
     return nil if params[:keyword] == ""
     beach = Beach.where(['name LIKE ?', "%#{params[:keyword]}%"] )
     render json:{ keyword: beach }
-    # @q = Beach.ransack(params[:q])
-    # @beachs = @q.result
   end
 
   def new
