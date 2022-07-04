@@ -31,17 +31,17 @@
 // const root = createRoot(container)
 // root.render(<App />)
 
-import React from 'react'
-import { createRoot } from 'react-dom/client'
-// import 'index.css'
-import App from './App'
+// import React from 'react'
+// import { createRoot } from 'react-dom/client'
+// // import 'index.css'
+// import App from './App'
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+// const root = ReactDOM.createRoot(document.getElementById('root'))
 
-root.render(
-<React.ScriptMode>
+// root.render(
+// <React.ScriptMode>
 
-{/* <App /> */}
+// {/* <App /> */}
 
-</React.ScriptMode>
-)
+// </React.ScriptMode>
+// )
