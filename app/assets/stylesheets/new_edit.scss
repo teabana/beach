@@ -25,7 +25,7 @@ Beach情報入力
   .beach_register_box {
     margin:  auto auto ;
     width: 600px;
-    height: 800px;
+    height: 900px;
     backdrop-filter: blur(20px);
     border-radius: 2px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -96,6 +96,10 @@ Beach情報入力
   }
 }
 
+#item_image {
+  width: 90%;
+}
+
 #item_info {
   height: 100px;
 }
@@ -157,4 +161,8 @@ Beach情報入力
 .error_alert {
   text-align: center;
   color: red;
+}
+
+.field_with_errors {
+  display: contents;
 }
