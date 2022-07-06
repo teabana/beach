@@ -1,6 +1,7 @@
 class BeachsController < ApplicationController
   before_action :find_beach, only: [:show, :destroy, :edit, :update]
   before_action :user_signed?, only: [:index, :search_index, :new, :create, :show, :edit, :update]
+  before_action :ensure_user_admin, only: [:new, :destroy, :edit]
 
   def index
   end
@@ -70,11 +71,16 @@ class BeachsController < ApplicationController
   def user_signed?
     if user_signed_in?
       @user = User.find(current_user.id)
+      # binding.pry
     end
   end
 
   def find_beach
     @beach = Beach.find(params[:id])
+  end
+
+  def ensure_user_admin
+    redirect_to beach_search_path if @user.admin == false
   end
 
 end

@@ -44,7 +44,7 @@
         </div>
       </div>
       <div id="invisible_links">
-        <% if @beach.user.admin == true %>
+        <% if @user.admin == true %>
           <%= link_to "Edit", edit_beach_path(@beach), method: :get, class: "beach_edit_btn" %>
             <p class="or-text">or</p>
           <%= link_to "Delete", beach_path(@beach), method: :delete, class:"beach_destroy_btn" %>
