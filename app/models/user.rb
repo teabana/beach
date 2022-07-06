@@ -4,9 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: true
-
   has_many :beachs
   has_many :beach_activitys
   has_many :beach_facilitys
+
+  validates :nickname, presence: true
+
+  validates :password,
+            format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i,
+                      message: 'is invalid. Input a mixture of single-byte alphanumeric characters.'}
 end
