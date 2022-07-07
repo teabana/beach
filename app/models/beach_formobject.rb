@@ -6,7 +6,6 @@ class BeachFormobject
                 :beach_id, :activity_id, :facility_id, :activitys, :facilitys
 
   with_options presence: true do
-    validates :user_id
     validates :name
     validates :detail
     validates :area_id
@@ -15,18 +14,12 @@ class BeachFormobject
     validates :image
   end
 
-  # delegate :persisted?, to: :beach
 
   def initialize(attributes = nil, beach: Beach.new )
     @beach = beach
     attributes ||= default_attributes
-    # binding.pry
     super(attributes)
   end
-
-  # def to_model
-  #   beach
-  # end
 
   def save
     raturn false if invalid?

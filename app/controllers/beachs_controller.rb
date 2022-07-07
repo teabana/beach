@@ -71,7 +71,6 @@ class BeachsController < ApplicationController
   def user_signed?
     if user_signed_in?
       @user = User.find(current_user.id)
-      # binding.pry
     end
   end
 
