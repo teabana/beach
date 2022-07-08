@@ -34,7 +34,6 @@ class BeachFormobject
       facility_id.each do |facility|
         BeachFacility.create(beach_id: @newbeach.id, facility_id: facility, user_id: user_id)
       end
-      
     end
 
     true

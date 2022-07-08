@@ -12,6 +12,7 @@ RSpec.describe Beach, type: :model do
   describe 'ビーチ登録' do
     context 'ビーチ登録可能' do
       it '必要情報を全て入力すると登録できる' do
+        binding.pry
         expect(@beach_form).to be_valid
       end
     end

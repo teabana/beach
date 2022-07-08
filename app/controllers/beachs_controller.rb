@@ -1,4 +1,5 @@
 class BeachsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :search_index]
   before_action :find_beach, only: [:show, :destroy, :edit, :update]
   before_action :user_signed?, only: [:index, :search_index, :new, :create, :show, :edit, :update]
   before_action :ensure_user_admin, only: [:new, :destroy, :edit]
