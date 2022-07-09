@@ -6,13 +6,12 @@ RSpec.describe Beach, type: :model do
     beach = FactoryBot.create(:beach)
     activity = FactoryBot.create(:beach_activity, beach_id: beach.id, user_id: user.id)
     facility = FactoryBot.create(:beach_facility, beach_id: beach.id, user_id: user.id)
-    @beach_form = FactoryBot.build(:beach_formobject, user_id: user.id ,activity_id: activity.id, facility_id: facility.id)
+    @beach_form = FactoryBot.build(:beach_formobject,image: beach.image, user_id: user.id ,activity_id: activity.id, facility_id: facility.id)
   end
 
   describe 'ビーチ登録' do
     context 'ビーチ登録可能' do
       it '必要情報を全て入力すると登録できる' do
-        binding.pry
         expect(@beach_form).to be_valid
       end
     end

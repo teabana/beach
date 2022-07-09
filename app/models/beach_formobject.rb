@@ -25,14 +25,14 @@ class BeachFormobject
     raturn false if invalid?
 
     ActiveRecord::Base.transaction do
-      @newbeach = Beach.create(name: name, detail: detail, area_id: area_id, image: image, user_id: user_id)
+      beach = Beach.create(name: name, detail: detail, area_id: area_id, image: image, user_id: user_id)
 
       activity_id.each do |activity|
-        BeachActivity.create(beach_id: @newbeach.id, activity_id: activity, user_id: user_id)
+        BeachActivity.create(beach_id: beach.id, activity_id: activity, user_id: user_id)
       end
   
       facility_id.each do |facility|
-        BeachFacility.create(beach_id: @newbeach.id, facility_id: facility, user_id: user_id)
+        BeachFacility.create(beach_id: beach.id, facility_id: facility, user_id: user_id)
       end
     end
 
